@@ -16,5 +16,7 @@ interface VenuesApi {
         @Query("ll") ll: String,
         @Query("query") query: String = "",
         @Query("categoryId") categoryId: String = "",
+        @Query("radius") radius: Long = 500,
+        @Query("limit") limit: Int = 50,
     ): Single<VenuesResponse>
 }

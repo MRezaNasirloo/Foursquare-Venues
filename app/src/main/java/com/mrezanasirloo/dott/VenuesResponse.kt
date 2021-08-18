@@ -55,7 +55,7 @@ data class Location(
 	@Json(name="address")
 	val address: String?,
 	@Json(name="labeledLatLngs")
-	val labeledLatLngs: List<LabeledLatLngsItem>,
+	val labeledLatLngs: List<LabeledLatLngsItem>? = emptyList(),
 	@Json(name="lat")
 	val lat: Double,
 	@Json(name="lng")
