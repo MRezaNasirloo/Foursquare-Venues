@@ -1,4 +1,4 @@
-package com.mrezanasirloo.dott
+package com.mrezanasirloo.venues.map.datasource
 
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET

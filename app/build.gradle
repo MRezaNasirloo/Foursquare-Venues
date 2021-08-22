@@ -41,7 +41,7 @@ android {
 dependencies {
     implementation project(":core")
     implementation project(":navigation")
-    implementation project(":venue-details")
+    implementation project(":venues-map")
 
     implementation("androidx.appcompat:appcompat:$libs.appcompat")
     implementation("com.google.android.material:material:$libs.material")
