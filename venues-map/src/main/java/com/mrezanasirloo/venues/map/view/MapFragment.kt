@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.SupportMapFragment
 import com.mrezanasirloo.venues.map.R
 import com.mrezanasirloo.venues.map.databinding.FragmentMapBinding
+import com.mrezanasirloo.venues.map.view.user.UserLocationPlugin
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -17,7 +18,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MapFragment : Fragment() {
 
-    private val plugins: List<MapPlugin> = listOf()
+    private val plugins: List<MapPlugin> = listOf(
+        UserLocationPlugin(this),
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
