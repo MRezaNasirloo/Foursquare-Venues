@@ -9,3 +9,4 @@ rootProject.name = "Dott Map"
 include ':app'
 include ':core'
 include ':navigation'
+include ':venues-map'
