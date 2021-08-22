@@ -3,15 +3,17 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
-    compileSdk 30
+    compileSdk sdk.compileSdk
 
     defaultConfig {
         applicationId "com.mrezanasirloo.dott"
-        minSdk 21
-        targetSdk 30
+        minSdk sdk.minSdk
+        targetSdk sdk.targetSdk
         versionCode 1
         versionName "1.0"
 
@@ -37,34 +39,12 @@ android {
 }
 
 dependencies {
+    implementation("androidx.appcompat:appcompat:$libs.appcompat")
+    implementation("com.google.android.material:material:$libs.material")
+    implementation("androidx.navigation:navigation-fragment-ktx:$libs.navigation")
 
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'com.google.android.gms:play-services-maps:17.0.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
-    implementation 'com.google.maps.android:maps-utils-ktx:3.1.0'
+    implementation("com.google.dagger:hilt-android:$libs.hilt")
+    kapt("com.google.dagger:hilt-compiler:$libs.hilt")
 
-    implementation "com.google.dagger:hilt-android:2.38.1"
-    kapt "com.google.dagger:hilt-compiler:2.38.1"
-
-    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.1"))
-    implementation("com.squareup.okhttp3:okhttp")
-    implementation("com.squareup.okhttp3:logging-interceptor")
-
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
-    implementation("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
-    implementation("com.squareup.moshi:moshi:1.12.0")
-    implementation("com.squareup.moshi:moshi-kotlin:1.12.0")
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.12.0")
-
-    implementation("io.reactivex.rxjava3:rxjava:3.1.0")
-    implementation("io.reactivex.rxjava3:rxandroid:3.0.0")
-    implementation("io.reactivex.rxjava3:rxkotlin:3.0.1")
-
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
 }
