@@ -13,4 +13,13 @@
             app:destination="@id/details_fragment" />
     </fragment>
 
+    <dialog
+        android:id="@+id/details_fragment"
+        android:name="com.mrezanasirloo.venue.details.DetailsFragment"
+        android:label="details_dialog">
+        <argument
+            android:name="venue"
+            app:argType="com.mrezanasirloo.navigation.venue.VenueArg" />
+    </dialog>
+
 </navigation>

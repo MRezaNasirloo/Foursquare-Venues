@@ -1,13 +1,16 @@
 package com.mrezanasirloo.venues.map.view.venues
 
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.maps.android.clustering.Cluster
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.view.DefaultClusterRenderer
+import com.mrezanasirloo.venues.map.R.id
 import com.mrezanasirloo.venues.map.view.MapPlugin
 import com.mrezanasirloo.venues.map.view.entity.Venue
 
@@ -67,7 +70,10 @@ class VenuesPlugin(
             }
 
             viewModel.venueNavigation.observe(fragment.viewLifecycleOwner) { arg ->
-
+                fragment.findNavController().navigate(
+                    id.to_details,
+                    bundleOf("venue" to arg)
+                )
             }
         }
     }

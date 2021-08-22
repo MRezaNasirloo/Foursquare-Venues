@@ -1,23 +1,19 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
-    id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
-    id 'kotlin-parcelize'
-    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
     compileSdk sdk.compileSdk
 
     defaultConfig {
-        applicationId "com.mrezanasirloo.dott"
         minSdk sdk.minSdk
         targetSdk sdk.targetSdk
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -39,17 +35,9 @@ android {
 }
 
 dependencies {
-    implementation project(":core")
     implementation project(":navigation")
-    implementation project(":venues-map")
-    implementation project(":venue-details")
-
     implementation("androidx.appcompat:appcompat:$libs.appcompat")
     implementation("com.google.android.material:material:$libs.material")
-    implementation("androidx.navigation:navigation-fragment-ktx:$libs.navigation")
+    implementation("androidx.constraintlayout:constraintlayout:$libs.constraintlayout")
 
-    implementation("com.google.dagger:hilt-android:$libs.hilt")
-    kapt("com.google.dagger:hilt-compiler:$libs.hilt")
-
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
 }
