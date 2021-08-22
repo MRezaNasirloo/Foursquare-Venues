@@ -1,4 +1,4 @@
-package com.mrezanasirloo.dott
+package com.mrezanasirloo.core.ext
 
 sealed class Result<T> {
     class Success<T>(val value: T): Result<T>()
@@ -11,16 +11,5 @@ sealed class Result<T> {
     fun error(error: Throwable.() -> Unit): Result<T> {
         if (this is Error<T>) error(throwable)
         return this
-    }
-}
-
-sealed class Either<L> {
-    class Success<L>(val value: L) : Either<L>()
-    class Error<L>(val title: String, val message: String) : Either<L>()
-    fun success(success: L.() -> Unit) {
-        if (this is Success<L>) success(value)
-    }
-    fun error(error: (Error<L>).() -> Unit) {
-        if (this is Error<L>) error(this)
     }
 }

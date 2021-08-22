@@ -1,4 +1,4 @@
-package com.mrezanasirloo.dott
+package com.mrezanasirloo.core.ext
 
 import retrofit2.HttpException
 import retrofit2.Response
